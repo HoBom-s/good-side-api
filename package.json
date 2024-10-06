@@ -1,8 +1,11 @@
 {
   "name": "good-side-api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "GoodSide Project Server",
+  "author": [
+    "Robin",
+    "FoxMon"
+  ],
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

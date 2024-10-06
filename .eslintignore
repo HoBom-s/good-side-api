@@ -1,0 +1,16 @@
+# node module
+node_modules
+
+# build
+dist
+
+# nest cli
+nest-cli.json
+
+# package
+package.json
+package-lick.json
+
+# tsconfig
+tsconfig.build.json
+tsconfig.json
