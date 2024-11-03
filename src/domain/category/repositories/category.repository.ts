@@ -25,4 +25,14 @@ export class CategoryRepository implements BaseCategoryRepository {
 
     return found;
   }
+
+  public async findOneByTitle(title: string): Promise<Category | null> {
+    const found = await this.categoryRepository.findOne({
+      where: {
+        title: title,
+      },
+    });
+
+    return found;
+  }
 }

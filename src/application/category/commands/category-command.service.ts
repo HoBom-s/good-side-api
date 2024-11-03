@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { CreateCategoryUseCase } from '../use-cases/crecate-category.use-case';
 import { CreateCategoryRequest } from 'src/\bdomain/category/dto/create-category.dto';
 import { BaseCategoryRepository } from 'src/\bdomain/category/repositories/base-category.repository';
@@ -11,6 +11,12 @@ export class CategoryCommandService implements CreateCategoryUseCase {
   ) {}
 
   public async create(command: CreateCategoryRequest) {
+    const already = await this.categoryRepository.findOneByTitle(command.title);
+
+    if (already) {
+      throw new BadRequestException(`Already exist category ${command.title}`);
+    }
+
     await this.categoryRepository.create(command);
   }
 }
